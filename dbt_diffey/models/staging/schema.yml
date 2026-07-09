@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: stg_health
+    description: "Cleaned and enriched World Bank health indicators for maternal and child health"
+    columns:
+      - name: year
+        description: "Year of the observation"
+        tests:
+          - not_null
+
+      - name: country_code
+        description: "ISO country code (e.g. GN for Guinea)"
+        tests:
+          - not_null
+
+      - name: country_name
+        description: "Full country name in French"
+        tests:
+          - not_null
+
+      - name: indicator_code
+        description: "World Bank indicator code"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['SH.STA.MMRT', 'SP.DYN.IMRT.IN', 'SH.STA.ANVC.ZS', 'SH.STA.BRTC.ZS', 'SH.MMR.RISK.ZS']
+
+      - name: indicator_value
+        description: "Numeric value of the indicator"
+        tests:
+          - not_null
+
+      - name: region
+        description: "Geographic region classification"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['West Africa', 'Global Comparison', 'World']

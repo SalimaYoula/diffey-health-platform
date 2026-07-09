@@ -1,0 +1,19 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Data files
+data/
+
+# dbt
+dbt_diffey/target/
+dbt_diffey/dbt_packages/
+dbt_diffey/logs/
+
+# OS
+.DS_Store
+Thumbs.dblogs/
+logs/
+.agents/
